@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,7 +48,7 @@ public class CollegueCtrl {
 	}
 	
 	@GetMapping(path="/{matricule}")
-	public Collegue rechercheMatricule(@PathParam("matricule") @Valid String matricule){
+	public Collegue rechercheMatricule(@PathVariable("matricule") @Valid String matricule){
 		System.out.println(matricule);
 		return this.collegueService.rechercheByMatricule(matricule);
 	}
@@ -59,7 +60,7 @@ public class CollegueCtrl {
 
 	}
 	@PatchMapping(path="/{matricule}")
-	public ResponseEntity<String>modifCollegue(@RequestBody Collegue collegue, @PathParam("matricule") @Valid String matricule ){
+	public ResponseEntity<String>modifCollegue(@RequestBody Collegue collegue, @PathVariable("matricule") @Valid String matricule ){
 		return this.collegueService.modifCollegue(collegue,matricule);
 	}
 	
