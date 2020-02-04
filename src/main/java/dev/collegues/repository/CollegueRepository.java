@@ -8,7 +8,7 @@ import dev.collegues.entite.*;
 public interface CollegueRepository extends JpaRepository<Collegue,Integer>{
 
 	
-	List<String> findByNom(String nom);
+	List<Collegue> findByNom(String nom);
 	
 	
 }

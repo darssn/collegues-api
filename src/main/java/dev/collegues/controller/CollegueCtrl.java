@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import dev.collegues.entite.Collegue;
 import dev.collegues.service.CollegueService;
 
 
@@ -27,8 +27,14 @@ public class CollegueCtrl {
 		this.collegueService = collegueService;
 	}
 	
+	@GetMapping
+	public List<Collegue>listeCollegue(){
+		return collegueService.liste();
+	}
+	
+	
 	@GetMapping(params = "nom")
-	public List<String>rechercheNom(@RequestParam("nom") @Valid String nom){
+	public List<Collegue>rechercheNom(@RequestParam("nom") @Valid String nom){
 		LOG.info("Recherche nom collegue");
 		return collegueService.rechercheByNom(nom);	
 	}
