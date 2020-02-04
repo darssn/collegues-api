@@ -36,8 +36,12 @@ public class CollegueService {
 	
 	public ResponseEntity<String> creerCollegue(Collegue collegue){
 
+		if(collegueRepository.existsByNomAndPrenomsAndMatricule(collegue.getNom(), collegue.getPrenoms(), collegue.getMatricule())){
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Collegue possedant deja le meme nom prenoms matricule");
+		}else{
 			collegueRepository.save(new Collegue(collegue.getMatricule(),collegue.getNom(),collegue.getPrenoms(),collegue.getEmail(),collegue.getDateDeNaissance(),collegue.getPhotoUrl()));
 			return ResponseEntity.status(HttpStatus.CREATED).body("Collegue enregistré");
+		}
 
 		
 	}

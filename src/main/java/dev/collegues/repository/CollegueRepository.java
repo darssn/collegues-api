@@ -1,5 +1,6 @@
 package dev.collegues.repository;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -12,6 +13,6 @@ public interface CollegueRepository extends JpaRepository<Collegue,Integer>{
 	
 	Collegue findByMatricule(String matricule);
 	
-	
-	
+	boolean existsByNomAndPrenomsAndMatricule(String nom,String prenoms,String matricule);
+
 }
