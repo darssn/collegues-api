@@ -22,7 +22,7 @@ import dev.collegues.entite.Collegue;
 import dev.collegues.service.CollegueService;
 
 
-@CrossOrigin
+
 @RestController
 @RequestMapping("collegues")
 public class CollegueCtrl {
@@ -35,7 +35,7 @@ public class CollegueCtrl {
 		this.collegueService = collegueService;
 	}
 	
-	
+	@CrossOrigin
 	@GetMapping
 	public List<Collegue>listeCollegue(){
 		return this.collegueService.liste();
