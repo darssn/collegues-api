@@ -45,7 +45,7 @@ public class CollegueCtrl {
 	}
 	
 	@GetMapping(path="/{matricule}")
-	public Collegue rechercheMatricule(@RequestParam("matricule")String matricule){
+	public Collegue rechercheMatricule(@RequestParam("matricule") @Valid String matricule){
 		return this.collegueService.rechercheByMatricule(matricule);
 	}
 	
