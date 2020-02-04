@@ -29,7 +29,7 @@ public class CollegueCtrl {
 	
 	@GetMapping(params = "nom")
 	public List<String>rechercheNom(@RequestParam("nom") @Valid String nom){
-		
+		LOG.info("Recherche nom collegue");
 		return collegueService.rechercheByNom(nom);	
 	}
 	
