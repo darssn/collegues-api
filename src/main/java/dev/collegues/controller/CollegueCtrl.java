@@ -54,7 +54,7 @@ public class CollegueCtrl {
 	}
 	
 	@PostMapping()
-	public ResponseEntity<String>createCollegue(@RequestBody @Valid Collegue collegue) {
+	public ResponseEntity<String>createCollegue(@RequestBody @Valid Collegue collegue){
 
 		return collegueService.creerCollegue(collegue);
 
