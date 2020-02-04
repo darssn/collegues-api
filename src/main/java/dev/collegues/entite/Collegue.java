@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.Id;
 
@@ -14,16 +15,31 @@ public class Collegue {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
-	
+	@NotNull
 	private String matricule;
+	@NotNull
 	private String nom;
+	@NotNull
 	private String prenoms;
+	@NotNull
 	private String email;
+	@NotNull
 	private LocalDate dateDeNaissance;
+	@NotNull
 	private String photoUrl;
 	
 	public Collegue(){
 		
+	}
+	
+	public Collegue(String matricule,String nom,String prenoms,String email,LocalDate date,String photo){
+		
+		this.matricule = matricule;
+		this.nom = nom;
+		this.prenoms = prenoms;
+		this.email=email;
+		this.dateDeNaissance = date;
+		this.photoUrl = photo;
 	}
 
 	/**Getter
