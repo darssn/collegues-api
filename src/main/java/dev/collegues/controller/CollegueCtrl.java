@@ -48,6 +48,7 @@ public class CollegueCtrl {
 	
 	@GetMapping(path="/{matricule}")
 	public Collegue rechercheMatricule(@PathParam("matricule") @Valid String matricule){
+		System.out.println(matricule);
 		return this.collegueService.rechercheByMatricule(matricule);
 	}
 	

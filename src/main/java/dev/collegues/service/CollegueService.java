@@ -43,7 +43,7 @@ public class CollegueService {
 	}
 	
 	public ResponseEntity<String> modifCollegue(Collegue collegue,String matricule){
-		//this.collegueRepository.save(collegue,matricule);
+		this.collegueRepository.save(collegue,matricule);
 		return ResponseEntity.status(HttpStatus.OK).body("Collegue modifié");
 	}
 	
