@@ -6,13 +6,17 @@ import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.collegues.entite.Collegue;
 import dev.collegues.service.CollegueService;
+
 
 
 @RestController
@@ -27,16 +31,29 @@ public class CollegueCtrl {
 		this.collegueService = collegueService;
 	}
 	
+	
 	@GetMapping
 	public List<Collegue>listeCollegue(){
-		return collegueService.liste();
+		return this.collegueService.liste();
 	}
 	
 	
 	@GetMapping(params = "nom")
 	public List<Collegue>rechercheNom(@RequestParam("nom") @Valid String nom){
 		LOG.info("Recherche nom collegue");
-		return collegueService.rechercheByNom(nom);	
+		return this.collegueService.rechercheByNom(nom);	
+	}
+	
+	@GetMapping(path="/{matricule}")
+	public Collegue rechercheMatricule(@RequestParam("matricule")String matricule){
+		return this.collegueService.rechercheByMatricule(matricule);
+	}
+	
+	@PostMapping()
+	public ResponseEntity<String>createCollegue(@RequestBody @Valid Collegue collegue) {
+
+		return collegueService.creerCollegue(collegue);
+
 	}
 	
 }

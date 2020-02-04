@@ -35,13 +35,14 @@ public class Startup {
 
 		if (this.collegueRepository.count() == 0) {
 
-			List<Collegue> clients = new ArrayList<Collegue>();
-			clients.add(new Collegue("A00","Pierre", "Jean","PJ@XXX.com",LocalDate.parse("2019-10-10"),"photo.png"));
-			clients.add(new Collegue("A01","Pierre", "Dimitri","PD@XXX.com",LocalDate.parse("2019-10-10"),"photo.png"));
-			clients.add(new Collegue("A02","Albert", "Dimitri","AD@XXX.com",LocalDate.parse("2019-10-10"),"photo.png"));
-			clients.add(new Collegue("A03","Durand", "Martin","DM@XXX.com",LocalDate.parse("2019-10-10"),"photo.png"));
+			List<Collegue> listeCol = new ArrayList<Collegue>();
+			
+			listeCol.add(new Collegue("A00","Pierre", "Jean","PJ@XXX.com",LocalDate.parse("2019-10-10"),"photo.png"));
+			listeCol.add(new Collegue("A01","Pierre", "Dimitri","PD@XXX.com",LocalDate.parse("2019-10-10"),"photo.png"));
+			listeCol.add(new Collegue("A02","Albert", "Dimitri","AD@XXX.com",LocalDate.parse("2019-10-10"),"photo.png"));
+			listeCol.add(new Collegue("A03","Durand", "Martin","DM@XXX.com",LocalDate.parse("2019-10-10"),"photo.png"));
 
-			this.collegueRepository.saveAll(clients);
+			this.collegueRepository.saveAll(listeCol);
 		}
 	}
 	
