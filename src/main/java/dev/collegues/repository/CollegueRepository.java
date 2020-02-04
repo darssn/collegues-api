@@ -12,6 +12,6 @@ public interface CollegueRepository extends JpaRepository<Collegue,Integer>{
 	
 	Collegue findByMatricule(String matricule);
 	
-	void save(Collegue collegue,String matricule);
+	
 	
 }
