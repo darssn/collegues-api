@@ -7,8 +7,10 @@ import javax.websocket.server.PathParam;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,10 +21,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.collegues.entite.Collegue;
+import dev.collegues.entite.CollegueRecup;
+import dev.collegues.exception.CollegueNonTrouveException;
 import dev.collegues.service.CollegueService;
 
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("collegues")
 public class CollegueCtrl {
@@ -35,7 +39,7 @@ public class CollegueCtrl {
 		this.collegueService = collegueService;
 	}
 	
-	@CrossOrigin
+	
 	@GetMapping
 	public List<Collegue>listeCollegue(){
 		return this.collegueService.liste();
@@ -49,9 +53,12 @@ public class CollegueCtrl {
 	}
 	
 	@GetMapping(path="/{matricule}")
-	public Collegue rechercheMatricule(@PathVariable("matricule") @Valid String matricule){
-		System.out.println(matricule);
+	
+	public Collegue rechercheMatricule(@PathVariable("matricule") @Valid String matricule) throws CollegueNonTrouveException{
+
 		return this.collegueService.rechercheByMatricule(matricule);
+		
+		
 	}
 	
 	@PostMapping()
@@ -60,10 +67,19 @@ public class CollegueCtrl {
 		return collegueService.creerCollegue(collegue);
 
 	}
+	
 	@PatchMapping(path="/{matricule}")
-	public ResponseEntity<String>modifCollegue(@RequestBody Collegue collegue, @PathVariable("matricule") @Valid String matricule ){
+	public ResponseEntity<String>modifCollegue(@RequestBody CollegueRecup collegue, @PathVariable("matricule") @Valid String matricule){
+		
 		return this.collegueService.modifCollegue(collegue,matricule);
+		
+	}
+	@ExceptionHandler(CollegueNonTrouveException.class)
+	public ResponseEntity<?> reponse(CollegueNonTrouveException e){
+		
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+		
 	}
 	
-	
 }
+
