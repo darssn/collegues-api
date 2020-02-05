@@ -1,8 +1,12 @@
 package dev.collegues.entite;
 
+import javax.validation.constraints.NotNull;
+
 public class CollegueRecup {
 
+	@NotNull
 	private String email;
+	@NotNull
 	private String photoUrl;
 
 	/**

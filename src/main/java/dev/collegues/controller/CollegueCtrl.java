@@ -69,11 +69,14 @@ public class CollegueCtrl {
 	}
 	
 	@PatchMapping(path="/{matricule}")
-	public ResponseEntity<String>modifCollegue(@RequestBody CollegueRecup collegue, @PathVariable("matricule") @Valid String matricule){
+	public ResponseEntity<String>modifCollegue(@RequestBody @Valid CollegueRecup collegue, @PathVariable("matricule") @Valid String matricule){
 		
 		return this.collegueService.modifCollegue(collegue,matricule);
 		
 	}
+	
+	
+	
 	@ExceptionHandler(CollegueNonTrouveException.class)
 	public ResponseEntity<?> reponse(CollegueNonTrouveException e){
 		
