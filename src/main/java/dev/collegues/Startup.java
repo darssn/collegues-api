@@ -37,10 +37,10 @@ public class Startup {
 
 			List<Collegue> listeCol = new ArrayList<Collegue>();
 			
-			listeCol.add(new Collegue("A00","Pierre", "Jean","PJ@XXX.com",LocalDate.parse("2019-10-10"),"photo.png"));
-			listeCol.add(new Collegue("A01","Pierre", "Dimitri","PD@XXX.com",LocalDate.parse("2019-10-10"),"photo.png"));
-			listeCol.add(new Collegue("A02","Albert", "Dimitri","AD@XXX.com",LocalDate.parse("2019-10-10"),"photo.png"));
-			listeCol.add(new Collegue("A03","Durand", "Martin","DM@XXX.com",LocalDate.parse("2019-10-10"),"photo.png"));
+			listeCol.add(new Collegue("Pierre", "Jean","PJ@XXX.com",LocalDate.parse("2019-10-10"),"photo.png"));
+			listeCol.add(new Collegue("Pierre", "Dimitri","PD@XXX.com",LocalDate.parse("2019-10-10"),"photo.png"));
+			listeCol.add(new Collegue("Albert", "Dimitri","AD@XXX.com",LocalDate.parse("2019-10-10"),"photo.png"));
+			listeCol.add(new Collegue("Durand", "Martin","DM@XXX.com",LocalDate.parse("2019-10-10"),"photo.png"));
 
 			this.collegueRepository.saveAll(listeCol);
 		}

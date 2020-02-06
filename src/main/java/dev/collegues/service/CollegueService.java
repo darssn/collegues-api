@@ -24,6 +24,7 @@ public class CollegueService {
 	public List<Collegue> liste() {
 		return this.collegueRepository.findAll();
 	}
+	
 
 	public List<Collegue> rechercheByNom(String nom) {
 
@@ -47,7 +48,7 @@ public class CollegueService {
 			
 		} else {
 			
-			collegueRepository.save(new Collegue(collegue.getMatricule(), collegue.getNom(), collegue.getPrenoms(),collegue.getEmail(), collegue.getDateDeNaissance(), collegue.getPhotoUrl()));
+			collegueRepository.save(new Collegue(collegue.getNom(), collegue.getPrenoms(),collegue.getEmail(), collegue.getDateDeNaissance(), collegue.getPhotoUrl()));
 			
 			return ResponseEntity.status(HttpStatus.CREATED).body("Collegue enregistré");
 		}
