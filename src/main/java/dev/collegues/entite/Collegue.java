@@ -16,7 +16,7 @@ public class Collegue {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
-	@NotNull
+
 	private String matricule;
 	@NotNull
 	private String nom;
