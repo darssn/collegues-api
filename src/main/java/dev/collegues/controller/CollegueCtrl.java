@@ -81,6 +81,7 @@ public class CollegueCtrl {
 	
 	@GetMapping("/photos")
 	public List<PhotoWebApi> listePhoto(){
+		
 		LOG.info("Recherche liste photo");
 		return this.collegueService.listePhoto();
 		
