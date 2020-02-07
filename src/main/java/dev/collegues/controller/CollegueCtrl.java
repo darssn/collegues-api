@@ -78,15 +78,12 @@ public class CollegueCtrl {
 		
 	}
 	
-	@GetMapping("/photos")
+	@GetMapping(path="/photos")
 	public List<PhotoWebApi> listePhoto(){
+		
 		return this.collegueService.listePhoto();
 		
 	}
-	
-	
-	
-	
 	
 	@ExceptionHandler(CollegueNonTrouveException.class)
 	public ResponseEntity<?> reponse(CollegueNonTrouveException e){
