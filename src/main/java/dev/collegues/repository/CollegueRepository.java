@@ -19,7 +19,7 @@ public interface CollegueRepository extends JpaRepository<Collegue,Integer>{
 	
 
 	@Query("SELECT c.matricule , c.photoUrl FROM Collegue c ")
-	List<PhotoWebApi> listePhoto(); 
+	List<String> listePhoto(); 
 	
 
 }
