@@ -1,5 +1,6 @@
 package dev.collegues.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,7 +36,15 @@ public class CollegueService {
 	
 	public List<PhotoWebApi> listePhoto(){
 		
-		return this.collegueRepository.listePhoto();
+		List<Collegue> liste = this.collegueRepository.findAll();
+		
+		List<PhotoWebApi> listePhoto = new ArrayList<>();
+		
+		for(Collegue c : liste){
+			listePhoto.add(new PhotoWebApi(c.getMatricule(),c.getPhotoUrl()));
+		}
+		
+		return listePhoto;
 		
 	}
 
