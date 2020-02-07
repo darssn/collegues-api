@@ -43,6 +43,7 @@ public class CollegueCtrl {
 	
 	@GetMapping
 	public List<Collegue>listeCollegue(){
+		
 		return this.collegueService.liste();
 	}
 	
@@ -78,9 +79,9 @@ public class CollegueCtrl {
 		
 	}
 	
-	@GetMapping(path="/photos")
+	@GetMapping("/photos")
 	public List<PhotoWebApi> listePhoto(){
-		
+		LOG.info("Recherche liste photo");
 		return this.collegueService.listePhoto();
 		
 	}

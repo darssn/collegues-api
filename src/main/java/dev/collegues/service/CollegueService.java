@@ -34,7 +34,9 @@ public class CollegueService {
 	}
 	
 	public List<PhotoWebApi> listePhoto(){
+		
 		return this.collegueRepository.listePhoto();
+		
 	}
 
 	public Collegue rechercheByMatricule(String matricule) throws CollegueNonTrouveException {
