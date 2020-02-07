@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.collegues.entite.Collegue;
 import dev.collegues.entite.CollegueRecup;
+import dev.collegues.entite.PhotoWebApi;
 import dev.collegues.exception.CollegueNonTrouveException;
 import dev.collegues.service.CollegueService;
 
@@ -61,6 +62,8 @@ public class CollegueCtrl {
 		
 	}
 	
+	
+	
 	@PostMapping()
 	public ResponseEntity<String>createCollegue(@RequestBody @Valid Collegue collegue){
 
@@ -74,6 +77,14 @@ public class CollegueCtrl {
 		return this.collegueService.modifCollegue(collegue,matricule);
 		
 	}
+	
+	@GetMapping("/photos")
+	public List<PhotoWebApi> listePhoto(){
+		return this.collegueService.listePhoto();
+		
+	}
+	
+	
 	
 	
 	

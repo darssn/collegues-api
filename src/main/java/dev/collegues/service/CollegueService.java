@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import dev.collegues.entite.Collegue;
 import dev.collegues.entite.CollegueRecup;
+import dev.collegues.entite.PhotoWebApi;
 import dev.collegues.exception.CollegueNonTrouveException;
 import dev.collegues.repository.CollegueRepository;
 
@@ -30,6 +31,10 @@ public class CollegueService {
 
 		return this.collegueRepository.findByNom(nom);
 
+	}
+	
+	public List<PhotoWebApi> listePhoto(){
+		return this.collegueRepository.listePhoto();
 	}
 
 	public Collegue rechercheByMatricule(String matricule) throws CollegueNonTrouveException {
@@ -72,5 +77,9 @@ public class CollegueService {
 	
 		return ResponseEntity.status(HttpStatus.OK).body("Collegue modifié");
 	}
+	
+	
+	
+
 
 }
