@@ -18,7 +18,7 @@ public interface CollegueRepository extends JpaRepository<Collegue,Integer>{
 	boolean existsByNomAndPrenomsAndMatricule(String nom,String prenoms,String matricule);
 	
 
-	@Query("SELECT c.matricule,c.photoUrl as PhotoWebApi p FROM Collegue c ")
+	@Query("SELECT c.matricule,c.photoUrl FROM Collegue c ")
 	List<PhotoWebApi> listePhoto(); 
 	
 
