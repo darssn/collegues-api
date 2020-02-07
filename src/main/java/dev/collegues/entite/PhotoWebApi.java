@@ -9,6 +9,16 @@ public class PhotoWebApi {
 		
 	}
 
+	/**
+	 * @param matricule
+	 * @param photoUrl
+	 */
+	public PhotoWebApi(String matricule, String photoUrl) {
+		super();
+		this.matricule = matricule;
+		this.photoUrl = photoUrl;
+	}
+
 	/**Getter
 	 * @return the matricule
 	 */

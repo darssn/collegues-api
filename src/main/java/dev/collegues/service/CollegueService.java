@@ -33,7 +33,7 @@ public class CollegueService {
 
 	}
 	
-	public List<String> listePhoto(){
+	public List<PhotoWebApi> listePhoto(){
 		
 		return this.collegueRepository.listePhoto();
 		
