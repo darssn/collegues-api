@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import dev.collegues.controller.CollegueCtrl;
 import dev.collegues.entite.Collegue;
 import dev.collegues.entite.CollegueRecup;
 import dev.collegues.entite.PhotoWebApi;
@@ -17,6 +20,9 @@ import dev.collegues.repository.CollegueRepository;
 @Service
 public class CollegueService {
 
+	
+	private static final Logger LOG = LoggerFactory.getLogger(CollegueService.class);
+	
 	private CollegueRepository collegueRepository;
 
 	public CollegueService(CollegueRepository collegueRepository) {
@@ -35,9 +41,8 @@ public class CollegueService {
 	}
 	
 	public List<PhotoWebApi> listePhoto(){
-		
-		List<Collegue> liste = this.collegueRepository.findAll();
-		
+		LOG.info(this.collegueRepository.listePhoto().toString());
+		List<Collegue> liste = this.collegueRepository.findAll();	
 		List<PhotoWebApi> listePhoto = new ArrayList<>();
 		
 		for(Collegue c : liste){
